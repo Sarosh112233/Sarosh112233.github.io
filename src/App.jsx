@@ -10,11 +10,19 @@ function App() {
   
   // Real game development projects from your CV
   const projects = [
-    { name: "Scary Teacher 3D", desc: "Simulation game. Created immersive visuals using timeline and specialized mini-game features." },
-    { name: "Fashion Tycoon", desc: "Served as a core developer implementing key gameplay systems and user features." },
-    { name: "Birth Centre Tycoon", desc: "Engineered updates, troubleshot strict test cases, and met production deadlines." },
-    { name : "Pull the String", desc:"I worked on creating and designing levels and making the game visually appealing."},
-    {name : "Real Estate Tycoon", desc:"I worked on implementing new features, User Interface ,testing and debugging the game."}
+    { name: "Scary Teacher 3D",
+       desc: "Simulation game. Created immersive visuals using timeline and specialized mini-game features.",
+      url: "https://play.google.com/store/apps/details?id=com.zakg.scaryteacher.hellgame&hl=en"  },
+  
+    { name: "Birth Centre Tycoon", desc: "Engineered updates, troubleshot strict test cases, and met production deadlines." ,
+      url:"https://play.google.com/store/apps/details?id=com.genigames.idle.confinementcentre.tycoon"
+    },
+    { name : "Pull the String", desc:"I worked on creating and designing levels and making the game visually appealing.",
+      url:" https://play.google.com/store/apps/details?id=com.zatg.rescue.quest"
+    },
+    {name : "Real Estate Tycoon", desc:"I worked on implementing new features, User Interface ,testing and debugging the game.",
+      url : "https://play.google.com/store/apps/details?id=com.genigames.rental.property.tycoon&hl=en"
+    }
   ]
 
   // Floating background decorative element map [emoji, top, left, delay, duration]
@@ -119,6 +127,11 @@ function App() {
       >
         {/* TOP SCREEN INSET */}
         <div className="bg-[#161224] rounded-xl p-4 border-4 border-[#2c2447] min-h-[230px] flex flex-col justify-between relative overflow-hidden">
+  
+
+
+
+
           {/* Scanline Overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.15)_50%)] bg-[size:100%_4px] pointer-events-none z-20" />
           
@@ -147,8 +160,8 @@ function App() {
   />
 </motion.div>
 
-
-            {activeTab === 'projects' && (
+/*
+            {/* {activeTab === 'projects' && (
               <motion.div 
                 key="projects" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                 className="space-y-2 text-left z-10 text-[#f5edff]"
@@ -163,7 +176,36 @@ function App() {
                   ))}
                 </div>
               </motion.div>
+            )} */}
+            */
+                        {activeTab === 'projects' && (
+              <motion.div 
+                key="projects" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+                className="space-y-2 text-left z-10 text-[#f5edff]"
+              >
+                <div className="text-xs font-bold text-pink-400 border-b border-pink-500/20 pb-1 mb-1 tracking-wider">🕹️ MISSIONS LOG:</div>
+                <div className="max-h-[150px] overflow-y-auto space-y-2 pr-1 custom-scrollbar text-[11px]">
+                  {projects.map((p, idx) => (
+                    <a 
+                      key={idx} 
+                      href={p.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="block bg-purple-950/60 p-2 rounded border border-purple-800/40 hover:border-pink-400 hover:bg-purple-900/60 transition-all cursor-pointer group"
+                    >
+                      {/* Clicking anywhere on this card box will open your link! */}
+                      <span className="font-bold text-white block group-hover:text-pink-300 transition-colors">
+                        {p.name} ↗
+                      </span>
+                      <span className="text-gray-400 block mt-0.5 leading-tight">
+                        {p.desc}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
             )}
+
 
             {activeTab === 'skills' && (
               <motion.div 
