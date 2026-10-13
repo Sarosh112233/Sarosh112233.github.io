@@ -148,7 +148,7 @@ function App() {
 
                 
                {/* 🎀 AVATAR IMAGE BOUNCE */}
-<motion.div 
+{/* <motion.div 
   className="w-20 h-20 bg-purple-950 rounded-full border-4 border-pink-300 overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)]"
   animate={{ y: [0, -6, 0] }}
   transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -158,7 +158,7 @@ function App() {
     alt="Sarosh's Avatar" 
     className="w-full h-full object-cover"
   />
-</motion.div>
+</motion.div> */}
 
 /*
             {/* {activeTab === 'projects' && (
@@ -178,33 +178,48 @@ function App() {
               </motion.div>
             )} */}
             */
-                        {activeTab === 'projects' && (
+                           {activeTab === 'profile' && (
               <motion.div 
-                key="projects" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                className="space-y-2 text-left z-10 text-[#f5edff]"
+                key="profile" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+                className="text-center flex flex-col items-center justify-center h-full py-2 z-10"
               >
-                <div className="text-xs font-bold text-pink-400 border-b border-pink-500/20 pb-1 mb-1 tracking-wider">🕹️ MISSIONS LOG:</div>
-                <div className="max-h-[150px] overflow-y-auto space-y-2 pr-1 custom-scrollbar text-[11px]">
-                  {projects.map((p, idx) => (
-                    <a 
-                      key={idx} 
-                      href={p.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="block bg-purple-950/60 p-2 rounded border border-purple-800/40 hover:border-pink-400 hover:bg-purple-900/60 transition-all cursor-pointer group"
-                    >
-                      {/* Clicking anywhere on this card box will open your link! */}
-                      <span className="font-bold text-white block group-hover:text-pink-300 transition-colors">
-                        {p.name} ↗
-                      </span>
-                      <span className="text-gray-400 block mt-0.5 leading-tight">
-                        {p.desc}
-                      </span>
-                    </a>
-                  ))}
+                {/* 🎀 AVATAR IMAGE BOUNCE */}
+                <motion.div 
+                  className="w-18 h-18 bg-purple-950 rounded-full border-4 border-pink-300 overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)]"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                >
+                  <img 
+                    src="/hirasawa.jpg" 
+                    alt="Sarosh's Avatar" 
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                {/* <h2 className="text-base font-black text-pink-300 mt-2 tracking-wide">Sarosh Javed</h2>
+                <p className="text-[10px] text-cyan-300 mt-0.5 max-w-[240px] leading-tight">Software Engineer & Game Developer building immersive worlds.</p> */}
+                
+                {/* 🔗 INTERACTIVE SOCIAL CHANNELS MODULE */}
+                <div className="flex gap-3 mt-3 justify-center text-xs">
+                  <a 
+                    href="https://www.linkedin.com/in/sarosh-javed-b9b283220/" //  my linkedin url
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-white hover:text-pink-400 font-bold border-b border-dashed border-pink-400 pb-0.5 transition-colors"
+                  >
+                    [LINKEDIN]
+                  </a>
+                  <a 
+                    href="https://github.com/Sarosh112233" // my github  url
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-white hover:text-cyan-400 font-bold border-b border-dashed border-cyan-400 pb-0.5 transition-colors"
+                  >
+                    [GITHUB]
+                  </a>
                 </div>
               </motion.div>
             )}
+
 
 
             {activeTab === 'skills' && (
@@ -269,6 +284,19 @@ function App() {
       <footer className="mt-8 text-[9px] text-[#2c2447]/60 font-bold uppercase tracking-widest relative z-20 bg-white/40 px-4 py-1.5 rounded-full border border-sky-200/50">
         © {new Date().getFullYear()} SAROSH JAVED • OPERATE PANEL OPTIONS
       </footer>
+            {/* 📑 FIXED FLOATING RESUME DOWNLOAD BUTTON IN THE CORNER */}
+      <motion.a
+        href="/resume.pdf"
+        download="Sarosh_Javed_CV.pdf"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-xs px-4 py-3 rounded-2xl border-2 border-[#2c2447] shadow-[0_4px_0_#bd2b70] hover:scale-105 active:translate-y-1 transition-all cursor-pointer flex items-center gap-1.5"
+        whileHover={{ y: -2 }}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        <span>📂</span> DOWNLOAD CV
+      </motion.a>
+
     </div>
   )
 }
