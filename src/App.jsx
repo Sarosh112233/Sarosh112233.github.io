@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { desc } from 'framer-motion/client'
 
+
 function App() {
   const [activeTab, setActiveTab] = useState('profile')
 
@@ -286,8 +287,8 @@ function App() {
       </footer>
             {/* 📑 FIXED FLOATING RESUME DOWNLOAD BUTTON IN THE CORNER */}
       <motion.a
-        href="/resume.pdf"
-        download="Sarosh_Javed_CV.pdf"
+          href="./sarosh_javed_resume.pdf"
+        download="sarosh_javed_CV.pdf"
         className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-xs px-4 py-3 rounded-2xl border-2 border-[#2c2447] shadow-[0_4px_0_#bd2b70] hover:scale-105 active:translate-y-1 transition-all cursor-pointer flex items-center gap-1.5"
         whileHover={{ y: -2 }}
         initial={{ y: 50, opacity: 0 }}
