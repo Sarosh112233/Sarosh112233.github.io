@@ -1,28 +1,33 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { desc } from 'framer-motion/client'
-
 
 function App() {
   const [activeTab, setActiveTab] = useState('profile')
 
   // Real engineering skills from your CV
-  const skills = ["C# "," Unity", "Game Architecture", "UI/UX Layouts", "Debugging", "Optimization","Web Development"]
+  const skills = ["C#", "Unity", "Game Architecture", "UI/UX Layouts", "Debugging", "Optimization", "Web Development"]
   
-  // Real game development projects from your CV
+  // Real game development projects from your CV with hyperlinks
   const projects = [
-    { name: "Scary Teacher 3D",
-       desc: "Simulation game. Created immersive visuals using timeline and specialized mini-game features.",
-      url: "https://play.google.com/store/apps/details?id=com.zakg.scaryteacher.hellgame&hl=en"  },
-  
-    { name: "Birth Centre Tycoon", desc: "Engineered updates, troubleshot strict test cases, and met production deadlines." ,
-      url:"https://play.google.com/store/apps/details?id=com.genigames.idle.confinementcentre.tycoon"
+    { 
+      name: "Scary Teacher 3D",
+      desc: "Simulation game. Created immersive visuals using timeline and specialized mini-game features.",
+      url: "https://play.google.com/store/apps/details?id=com.zakg.scaryteacher.hellgame&hl=en"  
     },
-    { name : "Pull the String", desc:"I worked on creating and designing levels and making the game visually appealing.",
-      url:" https://play.google.com/store/apps/details?id=com.zatg.rescue.quest"
+    { 
+      name: "Birth Centre Tycoon", 
+      desc: "Engineered updates, troubleshot strict test cases, and met production deadlines.",
+      url: "https://play.google.com/store/apps/details?id=com.genigames.idle.confinementcentre.tycoon"
     },
-    {name : "Real Estate Tycoon", desc:"I worked on implementing new features, User Interface ,testing and debugging the game.",
-      url : "https://play.google.com/store/apps/details?id=com.genigames.rental.property.tycoon&hl=en"
+    { 
+      name: "Pull the String", 
+      desc: "I worked on creating and designing levels and making the game visually appealing.",
+      url: "https://play.google.com/store/apps/details?id=com.zatg.rescue.quest"
+    },
+    {
+      name: "Real Estate Tycoon", 
+      desc: "I worked on implementing new features, User Interface, testing and debugging the game.",
+      url: "https://play.google.com/store/apps/details?id=com.genigames.rental.property.tycoon&hl=en"
     }
   ]
 
@@ -127,120 +132,111 @@ function App() {
         transition={{ type: "spring", stiffness: 100 }}
       >
         {/* TOP SCREEN INSET */}
-        <div className="bg-[#161224] rounded-xl p-4 border-4 border-[#2c2447] min-h-[230px] flex flex-col justify-between relative overflow-hidden">
-  
-
-
-
-
+        <div className="bg-[#161224] rounded-xl p-4 border-4 border-[#2c2447] h-[230px] relative overflow-hidden flex flex-col">
           {/* Scanline Overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.15)_50%)] bg-[size:100%_4px] pointer-events-none z-20" />
           
-          <AnimatePresence mode="wait">
-            {activeTab === 'profile' && (
-              <motion.div 
-                key="profile" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                className="text-center flex flex-col items-center justify-center h-full py-2 z-10"
-              >
-                                <h2 className="text-lg font-black text-pink-300 mt-3 tracking-wide">Sarosh Javed</h2>
-                <p className="text-[11px] text-cyan-300 mt-1 max-w-[240px] leading-relaxed">Software Engineer & Game Developer building immersive worlds.</p>
-              </motion.div> 
-            )}
-
-                
-               {/* 🎀 AVATAR IMAGE BOUNCE */}
-{/* <motion.div 
-  className="w-20 h-20 bg-purple-950 rounded-full border-4 border-pink-300 overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)]"
-  animate={{ y: [0, -6, 0] }}
-  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
->
-  <img 
-    src="/hirasawa.jpg" 
-    alt="Sarosh's Avatar" 
-    className="w-full h-full object-cover"
-  />
-</motion.div> */}
-
-/*
-            {/* {activeTab === 'projects' && (
-              <motion.div 
-                key="projects" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                className="space-y-2 text-left z-10 text-[#f5edff]"
-              >
-                <div className="text-xs font-bold text-pink-400 border-b border-pink-500/20 pb-1 mb-1 tracking-wider">🕹️ MISSIONS LOG:</div>
-                <div className="max-h-[150px] overflow-y-auto space-y-2 pr-1 custom-scrollbar text-[11px]">
-                  {projects.map((p, idx) => (
-                    <div key={idx} className="bg-purple-950/60 p-2 rounded border border-purple-800/40">
-                      <span className="font-bold text-white block">{p.name}</span>
-                      <span className="text-gray-400 block mt-0.5 leading-tight">{p.desc}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )} */}
-            */
-                           {activeTab === 'profile' && (
-              <motion.div 
-                key="profile" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                className="text-center flex flex-col items-center justify-center h-full py-2 z-10"
-              >
-                {/* 🎀 AVATAR IMAGE BOUNCE */}
+          {/* STABLE SCROLLABLE GRID DISPLAY DESK */}
+          <div className="w-full h-full overflow-y-auto pr-1 custom-scrollbar z-10 flex flex-col justify-start items-center">
+            <AnimatePresence mode="wait">
+              {activeTab === 'profile' && (
                 <motion.div 
-                  className="w-18 h-18 bg-purple-950 rounded-full border-4 border-pink-300 overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)]"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  key="profile" 
+                  initial={{ opacity: 0, x: 15 }} 
+                  animate={{ opacity: 1, x: 0 }} 
+                  exit={{ opacity: 0, x: -15 }}
+                  className="text-center flex flex-col items-center justify-center w-full py-1"
                 >
-                  <img 
-                    src="/hirasawa.jpg" 
-                    alt="Sarosh's Avatar" 
-                    className="w-full h-full object-cover"
-                  />
+                  {/* 🎀 AVATAR IMAGE BOUNCE */}
+                  <motion.div 
+                    className="w-16 h-16 bg-purple-950 rounded-full border-4 border-pink-300 overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(244,114,182,0.3)]"
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  >
+                    <img 
+                      src="/hirasawa.jpg" 
+                      alt="Sarosh's Avatar" 
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                  <h2 className="text-sm font-black text-pink-300 mt-2 tracking-wide">Sarosh Javed</h2>
+                  <p className="text-[10px] text-cyan-300 mt-0.5 max-w-[220px] leading-tight">Software Engineer & Game Developer building immersive worlds.</p>
+                  
+                  {/* 🔗 INTERACTIVE SOCIAL MODULE */}
+                  <div className="flex gap-3 mt-2.5 justify-center text-[10px]">
+                    <a 
+                      href="https://www.linkedin.com/in/sarosh-javed-b9b283220/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-white hover:text-pink-400 font-bold border-b border-dashed border-pink-400 pb-0.5 transition-colors"
+                    >
+                      [LINKEDIN]
+                    </a>
+                    <a 
+                      href="https://github.com/Sarosh112233" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-white hover:text-cyan-400 font-bold border-b border-dashed border-cyan-400 pb-0.5 transition-colors"
+                    >
+                      [GITHUB]
+                    </a>
+                  </div>
                 </motion.div>
-                {/* <h2 className="text-base font-black text-pink-300 mt-2 tracking-wide">Sarosh Javed</h2>
-                <p className="text-[10px] text-cyan-300 mt-0.5 max-w-[240px] leading-tight">Software Engineer & Game Developer building immersive worlds.</p> */}
-                
-                {/* 🔗 INTERACTIVE SOCIAL CHANNELS MODULE */}
-                <div className="flex gap-3 mt-3 justify-center text-xs">
-                  <a 
-                    href="https://www.linkedin.com/in/sarosh-javed-b9b283220/" //  my linkedin url
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-white hover:text-pink-400 font-bold border-b border-dashed border-pink-400 pb-0.5 transition-colors"
-                  >
-                    [LINKEDIN]
-                  </a>
-                  <a 
-                    href="https://github.com/Sarosh112233" // my github  url
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-white hover:text-cyan-400 font-bold border-b border-dashed border-cyan-400 pb-0.5 transition-colors"
-                  >
-                    [GITHUB]
-                  </a>
-                </div>
-              </motion.div>
-            )}
+              )}
 
+              {activeTab === 'projects' && (
+                <motion.div 
+                  key="projects" 
+                  initial={{ opacity: 0, x: 15 }} 
+                  animate={{ opacity: 1, x: 0 }} 
+                  exit={{ opacity: 0, x: -15 }}
+                  className="space-y-2 text-left w-full"
+                >
+                  <div className="text-[10px] font-bold text-pink-400 border-b border-pink-500/20 pb-1 mb-1 tracking-wider uppercase">🕹️ MISSIONS LOG:</div>
+                  <div className="space-y-1.5 w-full">
+                    {projects.map((p, idx) => (
+                      <a 
+                        key={idx} 
+                        href={p.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block bg-purple-950/60 p-2 rounded border border-purple-800/40 hover:border-pink-400 hover:bg-purple-900/60 transition-all cursor-pointer group"
+                      >
+                        <span className="font-bold text-white block group-hover:text-pink-300 transition-colors">
+                          {p.name} ↗
+                        </span>
+                        <span className="text-gray-400 block mt-0.5 text-[9px] leading-tight">
+                          {p.desc}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
-
-            {activeTab === 'skills' && (
-              <motion.div 
-                key="skills" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                className="text-left z-10"
-              >
-                <div className="text-xs font-bold text-purple-300 border-b border-purple-500/20 pb-1 mb-2 tracking-wider">⚡ ABILITIES MATRIX:</div>
-                <div className="flex flex-wrap gap-1.5">
-                  {skills.map((s, idx) => (
-                    <span key={idx} className="bg-[#241b3d] text-pink-300 text-[10px] px-2.5 py-1.5 rounded border border-pink-500/20 font-bold uppercase tracking-wider">
-                      +{s}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              {activeTab === 'skills' && (
+                <motion.div 
+                  key="skills" 
+                  initial={{ opacity: 0, x: 15 }} 
+                  animate={{ opacity: 1, x: 0 }} 
+                  exit={{ opacity: 0, x: -15 }}
+                  className="text-left w-full"
+                >
+                  <div className="text-[10px] font-bold text-purple-300 border-b border-purple-500/20 pb-1 mb-2 tracking-wider uppercase">⚡ ABILITIES MATRIX:</div>
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {skills.map((s, idx) => (
+                      <span key={idx} className="bg-[#241b3d] text-pink-300 text-[10px] px-2.5 py-1.5 rounded border border-pink-500/20 font-bold uppercase tracking-wider">
+                        {s.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
-                {/* 🎮 LOWER CONTROLLER BUTTONS */}
+
+        {/* 🎮 LOWER CONTROLLER BUTTONS */}
         <div className="mt-6 grid grid-cols-3 items-center">
           {/* DIRECTIONAL D-PAD */}
           <div className="relative w-24 h-24 flex items-center justify-center">
@@ -285,9 +281,10 @@ function App() {
       <footer className="mt-8 text-[9px] text-[#2c2447]/60 font-bold uppercase tracking-widest relative z-20 bg-white/40 px-4 py-1.5 rounded-full border border-sky-200/50">
         © {new Date().getFullYear()} SAROSH JAVED • OPERATE PANEL OPTIONS
       </footer>
-            {/* 📑 FIXED FLOATING RESUME DOWNLOAD BUTTON IN THE CORNER */}
+
+      {/* 📑 FIXED FLOATING RESUME DOWNLOAD BUTTON IN THE CORNER */}
       <motion.a
-          href="./sarosh_javed_resume.pdf"
+        href="./sarosh_javed_resume.pdf"
         download="sarosh_javed_CV.pdf"
         className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-xs px-4 py-3 rounded-2xl border-2 border-[#2c2447] shadow-[0_4px_0_#bd2b70] hover:scale-105 active:translate-y-1 transition-all cursor-pointer flex items-center gap-1.5"
         whileHover={{ y: -2 }}
@@ -303,9 +300,3 @@ function App() {
 }
 
 export default App
-
-
-
-        
-       
-
